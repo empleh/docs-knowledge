@@ -13,16 +13,40 @@ Projects should have a separate contracts project.
 
 ### Example
 
+In this example the profile models are data used by the client layer and likely a subset of UserDTO data. UserDTO would likely be the same for both Adults and Children.
+
 - **Solution Root**
   - **Managers**
-    - **Notifications**
-      - NotificationManager.cs 
+    - **User**
+      - **StoreProfile**
+        - StoreAdultProfileHandler.cs
+        - StoreChildProfileHandler.cs
+      - **GetProfile**
+        - GetAdultProfileHandler.cs
+        - GetChildProfileHandler.cs
+    - UserManager.cs 
   - **Managers.Contracts**
-    - **Notifications**
-      - INotificationManager.cs
+    - **User**
+      - **Profile**
+        - **Models**
+          - AdultProfileModel.cs
+          - ChildProfileModel.cs
+        - **Requests**
+          - StoreAdultProfileRequest.cs
+          - StoreChildProfileRequest.cs
+        - **Responses**
+          - StoreAdultProfileResponse.cs
+          - StoreChildProfileResponse.cs
+    - IUserManager.cs
   - **Accessors**
     - **Users**
       - UserAccessor.cs 
   - **Accessors.Contracts**
     - **Users**
-      - IUserAccessor.cs
+      - **DTOs**
+        - UserDto.cs
+      - **Filters**
+        - UserFilter.cs
+      - **Outputs**
+        - UserOutput.cs
+    - IUserAccessor.cs
